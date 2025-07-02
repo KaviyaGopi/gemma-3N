@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gemma AI</string>
+    <string name="ask_ai">Ask AI</string>
+    <string name="clear">Clear</string>
+    <string name="enter_question">Type your question here...</string>
+    <string name="processing">Processing...</string>
+    <string name="welcome_message">Welcome! I\'m Gemma 3N, your AI assistant. Ask me anything and I\'ll do my best to help you.</string>
+    <string name="error_empty_input">Please enter a question</string>
+    <string name="error_model_not_ready">Model is not ready yet</string>
+    <string name="gemma_response">Gemma Response</string>
+    <string name="gemma_ai_assistant">Gemma 3N AI Assistant</string>
+    <string name="ask_gemma">Ask Gemma 3N</string>
+</resources>
