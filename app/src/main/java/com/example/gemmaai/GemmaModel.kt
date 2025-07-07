@@ -39,13 +39,9 @@ class GemmaModel(private val context: Context) {
             
             Log.d(TAG, "Model file ready: ${modelFile.absolutePath}")
             
-            val modelParams = ModelParameters().apply {
-                modelFilePath = modelFile.absolutePath
-                nGpuLayers = 0 // CPU only for mobile
-                nThreads = minOf(Runtime.getRuntime().availableProcessors(), 8)
-                nCtx = CONTEXT_SIZE
-                verbose = false
-            }
+            val modelParams = ModelParameters()
+                .setModel(modelFile.absolutePath)
+                .setGpuLayers(0)
             
             llamaModel = LlamaModel(modelParams)
             isInitialized = true
@@ -115,15 +111,14 @@ class GemmaModel(private val context: Context) {
             val formattedPrompt = formatPrompt(prompt)
             Log.d(TAG, "Generating response for prompt length: ${formattedPrompt.length}")
             
-            val inferenceParams = InferenceParameters().apply {
-                temperature = 0.7f
-                topK = 40
-                topP = 0.9f
-                repeatPenalty = 1.1f
-                nPredict = MAX_TOKENS
-            }
+            val inferenceParams = InferenceParameters(formattedPrompt)
+                .setTemperature(0.7f)
+                .setTopK(40)
+                .setTopP(0.9f)
+                .setRepeatPenalty(1.1f)
+                .setNPredict(MAX_TOKENS)
             
-            val response = llamaModel!!.complete(formattedPrompt, inferenceParams)
+            val response = llamaModel!!.complete(inferenceParams)
             val cleanedResponse = cleanResponse(response)
             
             Log.d(TAG, "Generated response length: ${cleanedResponse.length}")

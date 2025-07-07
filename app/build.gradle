@@ -59,9 +59,10 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.8.1'
     
     // For GGUF model support
-    implementation 'de.kherud:llama:2.2.0'
+    implementation 'de.kherud:llama:4.1.0'
     
     // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
     
     testImplementation 'junit:junit:4.13.2'
