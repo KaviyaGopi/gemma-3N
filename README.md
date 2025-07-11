@@ -156,3 +156,29 @@ For issues or questions:
 2. Review Android Studio's build logs
 3. Ensure all dependencies are properly synchronized
 4. Verify that the target device meets minimum requirements (API 26+)
+
+## To generate an APK from this code base, follow these steps:
+
+1. Build the APK using Gradle (from the command line)
+
+   - Open a terminal or PowerShell window.
+   - Navigate to your project root directory:
+     `...\gemma-3N`
+
+   - Run the Gradle build command:
+     `.\gradlew assembleDebug`
+     This will generate a debug APK.
+
+2. Find the APK
+   After the build completes, your APK will be located at:
+   `...\gemma-3N\app\build\outputs\apk\debug\app-debug.apk`
+
+3. (Optional) Build a Release APK
+   For a release APK (unsigned by default), run:
+   `.\gradlew assembleRelease`
+
+The release APK will be in:
+
+`...\gemma-3N\app\build\outputs\apk\release\app-release.apk`
+
+You can now install the APK on your device or emulator using adb install or by dragging it onto an emulator window. If you need a signed APK for Play Store, let me know!
